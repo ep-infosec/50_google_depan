@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DepanNode
+Bundle-SymbolicName: com.google.devtools.depan.nodes;singleton:=true
+Bundle-Version: 2.1.0.qualifier
+Bundle-Vendor: Pnambic Computing
+Require-Bundle: com.google.devtools.depan.core,
+ com.google.devtools.depan.edges,
+ com.google.guava,
+ com.google.devtools.depan.platform
+Bundle-ClassPath: .
+Export-Package: com.google.devtools.depan.nodes,
+ com.google.devtools.depan.nodes.filters.context,
+ com.google.devtools.depan.nodes.filters.model,
+ com.google.devtools.depan.nodes.filters.sequence,
+ com.google.devtools.depan.nodes.trees

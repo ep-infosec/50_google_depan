@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="com.google.devtools.depan.resources.analysis.installer">
+      <installer
+            class="com.google.devtools.depan.java.JavaAnalysisResourcePlugin"
+            id="com.google.devtools.depan.java.JavaAnalysisResourcePlugin">
+         <install_after
+               installer_ref="com.google.devtools.depan.matchers.persistence.GraphEdgeMatcherResourcesInstaller">
+         </install_after>
+         <install_after
+               installer_ref="com.google.devtools.depan.relations.persistence.RelationSetResourcesInstaller">
+         </install_after>
+      </installer>
+   </extension>
+   <extension
+         point="com.google.devtools.depan.eclipse.ui.nodes.node_element">
+      <node_features
+            class="com.google.devtools.depan.java.JavaNodePlugin"
+            id="com.google.devtools.depan.java.JavaNodePlugin">
+      </node_features>
+   </extension>
+
+   <!-- ================ PREFERENCES =============== -->
+</plugin>

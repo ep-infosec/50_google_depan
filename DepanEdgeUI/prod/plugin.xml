@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="com.google.devtools.depan.eclipse.ui.wizards"
+            class="com.google.devtools.depan.matchers.eclipse.ui.wizards.NewEdgeMatcherWizard"
+            icon="icons/matcher_16x16.png"
+            id="com.google.devtools.depan.matchers.eclipse.ui.wizards.NewEdgeMatcherWizard"
+            name="Edge Matcher">
+      </wizard>
+      <wizard
+            category="com.google.devtools.depan.eclipse.ui.wizards"
+            class="com.google.devtools.depan.relations.eclipse.ui.wizards.NewRelationSetWizard"
+            icon="icons/relpicker.png"
+            id="com.google.devtools.depan.relations.eclipse.ui.wizards.NewRelationSetWizard"
+            name="Relation Set">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="com.google.devtools.depan.matchers.eclipse.ui.editors.EdgeMatcherEditor"
+            extensions="gemxml"
+            icon="icons/matcher_16x16.png"
+            id="com.google.devtools.depan.matchers.eclipse.ui.editors.EdgeMatcherEditor"
+            name="Graph Edge Matcher">
+      </editor>
+      <editor
+            class="com.google.devtools.depan.relations.eclipse.ui.editors.RelationSetDescriptorEditor"
+            extensions="relxml"
+            icon="icons/relpicker.png"
+            id="com.google.devtools.depan.relations.eclipse.ui.editors.RelationSetDescriptorEditor"
+            name="Relation Set Editor">
+      </editor>
+   </extension>
+   <extension
+         id="com.google.devtools.depan.matchers.persistence"
+         point="com.google.devtools.depan.persistence.xstream.config">
+      <xstream_config
+            class="com.google.devtools.depan.matchers.persistence.EdgeMatcherDocXStreamConfig"
+            id="com.google.devtools.depan.matchers.persistence.EdgeMatcherDocXStreamConfig">
+      </xstream_config>
+      <xstream_config
+            class="com.google.devtools.depan.relations.persistence.RelationSetDescriptorXStreamConfig"
+            id="com.google.devtools.depan.relations.persistence.RelationSetDescriptorXStreamConfig">
+      </xstream_config>
+   </extension>
+   <extension
+         point="com.google.devtools.depan.persistence.resources.config">
+      <rsrc_doc_config
+            class="com.google.devtools.depan.matchers.persistence.EdgeMatcherDocConfig"
+            id="com.google.devtools.depan.matchers.persistence.EdgeMatcherDocConfig">
+      </rsrc_doc_config>
+      <rsrc_doc_config
+            class="com.google.devtools.depan.relations.persistence.RelationSetDescriptorConfig"
+            id="com.google.devtools.depan.relations.persistence.RelationSetDescriptorConfig">
+      </rsrc_doc_config>
+   </extension>
+   <extension
+         point="com.google.devtools.depan.resources.analysis.installer">
+      <installer
+            class="com.google.devtools.depan.matchers.persistence.GraphEdgeMatcherResourcesInstaller"
+            id="com.google.devtools.depan.matchers.persistence.GraphEdgeMatcherResourcesInstaller">
+      </installer>
+      <installer
+            class="com.google.devtools.depan.relations.persistence.RelationSetResourcesInstaller"
+            id="com.google.devtools.depan.relations.persistence.RelationSetResourcesInstaller">
+      </installer>
+   </extension>
+
+</plugin>

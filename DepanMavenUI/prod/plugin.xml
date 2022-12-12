@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="com.google.devtools.depan.eclipse.ui.wizards"
+            class="com.google.devtools.depan.maven.eclipse.NewMavenPomWizard"
+            finalPerspective="com.google.devtools.depan.eclipse.perspective"
+            icon="icons/eclipse/maven_icon.png"
+            id="com.google.devtools.depan.maven.eclipse.NewMavenWizard"
+            name="New Maven POM Analysis">
+      </wizard>
+      <wizard
+            category="com.google.devtools.depan.eclipse.ui.wizards"
+            class="com.google.devtools.depan.maven.eclipse.NewGraphMLWizard"
+            finalPerspective="com.google.devtools.depan.eclipse.perspective"
+            icon="icons/eclipse/graphml_16x16.png"
+            id="com.google.devtools.depan.maven.eclipse.NewGraphMLWizard"
+            name="New Maven GraphML Analysis">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.google.devtools.depan.maven.eclipse.preferences.AnalysisPreferencesInitializer">
+      </initializer>
+      <initializer
+            class="com.google.devtools.depan.maven.eclipse.preferences.ColorPreferencesInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.google.devtools.depan.maven.eclipse.preferences.AnalysisPreferencesPage"
+            id="com.google.devtools.depan.maven.eclipse.preferences.analysis"
+            name="Maven POM Analysis">
+      </page>
+      <page
+            category="com.google.devtools.depan.eclipse.preferences.colors"
+            class="com.google.devtools.depan.maven.eclipse.preferences.ColorPreferencesPage"
+            id="com.google.devtools.depan.maven.eclipse.nodecolors"
+            name="Maven Node Colors">
+      </page>
+   </extension>
+   <extension
+         point="com.google.devtools.depan.resources.analysis.installer">
+      <installer
+            class="com.google.devtools.depan.maven.MavenAnalysisResourcePlugin"
+            id="com.google.devtools.depan.maven.MavenAnalysisResourcePlugin">
+         <install_after
+               installer_ref="com.google.devtools.depan.matchers.persistence.GraphEdgeMatcherResourcesInstaller">
+         </install_after>
+         <install_after
+               installer_ref="com.google.devtools.depan.relations.persistence.RelationSetResourcesInstaller">
+         </install_after>
+      </installer>
+   </extension>
+   <extension
+         point="com.google.devtools.depan.eclipse.ui.nodes.node_element">
+      <node_features
+            class="com.google.devtools.depan.maven.MavenNodePlugin"
+            id="com.google.devtools.depan.maven.MavenNodePlugin">
+      </node_features>
+   </extension>
+</plugin>

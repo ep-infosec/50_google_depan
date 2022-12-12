@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="com.google.devtools.depan.resources.analysis.installer" name="Analysis Resources Installer" schema="schema/com.google.devtools.depan.resources.analysis.installer.exsd"/>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="com.google.devtools.depan.eclipse.ui.wizards"
+            name="DepAn">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="com.google.devtools.depan.resources.ResourceContainer"
+            class="com.google.devtools.depan.resource_doc.eclipse.ui.widgets.ResourcesAdapterFactory">
+         <adapter
+               type="org.eclipse.ui.model.IWorkbenchAdapter">
+         </adapter>
+      </factory>
+      <factory
+            adaptableType="com.google.devtools.depan.resource_doc.eclipse.ui.widgets.ResourceRoot"
+            class="com.google.devtools.depan.resource_doc.eclipse.ui.widgets.ResourcesAdapterFactory">
+         <adapter
+               type="org.eclipse.ui.model.IWorkbenchAdapter">
+         </adapter>
+      </factory>
+      <factory
+            adaptableType="com.google.devtools.depan.resources.PropertyDocument"
+            class="com.google.devtools.depan.resource_doc.eclipse.ui.widgets.ResourcesAdapterFactory">
+         <adapter
+               type="org.eclipse.ui.model.IWorkbenchAdapter">
+         </adapter>
+      </factory>
+   </extension>
+
+</plugin>

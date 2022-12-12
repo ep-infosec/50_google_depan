@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: TestGraphDoc
+Bundle-SymbolicName: com.google.devtools.depan.graph_doc-test
+Bundle-Version: 2.1.0.qualifier
+Bundle-Vendor: Pnambic Computing
+Fragment-Host: com.google.devtools.depan.graph_doc
+Require-Bundle: org.junit,
+ com.google.devtools.depan.test

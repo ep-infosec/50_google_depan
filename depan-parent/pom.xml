@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.pnambic.depan</groupId>
+  <artifactId>depan-parent</artifactId>
+  <version>0.0.3-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>DepAn Maven Parent</name>
+  <description>Maven build context for all DepAn components</description>
+
+  <properties>
+    <java.version>1.8</java.version>
+    <tycho.compiler.version>1.0.0</tycho.compiler.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <tycho.version>1.0.0</tycho.version>
+  </properties>
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-compiler-plugin</artifactId>
+        <version>${tycho.compiler.version}</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <version>${tycho.version}</version>
+        <extensions>true</extensions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>target-platform-configuration</artifactId>
+        <version>${tycho.version}</version>
+
+        <!-- Target details are merged from release parents -->
+        <configuration>
+          <resolver>p2</resolver>
+          <pomDependencies>consider</pomDependencies>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

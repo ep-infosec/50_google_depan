@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DepanGraphDoc
+Bundle-SymbolicName: com.google.devtools.depan.graph_doc;singleton:=true
+Bundle-Version: 2.1.0.qualifier
+Bundle-Vendor: Pnambic Computing
+Require-Bundle: org.eclipse.core.resources,
+ org.eclipse.core.runtime,
+ org.slf4j.api,
+ com.google.devtools.depan.core,
+ com.google.devtools.depan.builder,
+ com.google.devtools.depan.persistence,
+ com.google.devtools.depan.platform,
+ com.google.guava,
+ depan-xstream-library
+Bundle-ClassPath: .
+Export-Package: com.google.devtools.depan.analysis_doc.model,
+ com.google.devtools.depan.graph_doc.model,
+ com.google.devtools.depan.graph_doc.operations,
+ com.google.devtools.depan.graph_doc.persistence,
+ com.google.devtools.depan.nodelist_doc.model,
+ com.google.devtools.depan.nodelist_doc.persistence

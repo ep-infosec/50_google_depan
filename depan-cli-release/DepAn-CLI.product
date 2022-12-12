@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="DepAn [CLI]" uid="com.pnambic.depan.cli.release" id="com.google.devtools.depan.cli" application="com.google.devtools.depan.cmd.application" version="2.1.0.qualifier" useFeatures="true" includeLaunchers="true">
+
+   <aboutInfo>
+      <text>
+         DepAn - A direct manipulation tool for the visualization, analysis, and refactoring of dependencies in large applications.
+      </text>
+   </aboutInfo>
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <programArgs>-nosplash
+      </programArgs>
+      <vmArgs>-Dosgi.requiredJavaVersion=1.6 -Xms40m -Xmx512m
+      </vmArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+      </vmArgsMac>
+   </launcherArgs>
+
+   <windowImages/>
+
+   <launcher name="DepAnCmd">
+      <solaris/>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+   </vm>
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="com.pnambic.depan.cli.feature" version="2.1.0.qualifier"/>
+   </features>
+
+   <configurations>
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="3" />
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="3" />
+   </configurations>
+
+</product>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.google.devtools.depan.ruby.eclipse.preferences.AnalysisPreferencesInitializer">
+      </initializer>
+      <initializer
+            class="com.google.devtools.depan.ruby.eclipse.preferences.ColorPreferencesInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.google.devtools.depan.ruby.eclipse.preferences.AnalysisPreferencesPage"
+            id="com.google.devtools.depan.ruby.eclipse.preferences.analysis"
+            name="Ruby Analysis">
+      </page>
+      <page
+            category="com.google.devtools.depan.eclipse.preferences.colors"
+            class="com.google.devtools.depan.ruby.eclipse.preferences.ColorPreferencesPage"
+            id="com.google.devtools.depan.ruby.eclipse.nodecolors"
+            name="Ruby Node Colors">
+      </page>
+   </extension>
+   <extension
+         point="com.google.devtools.depan.resources.analysis.installer">
+      <installer
+            class="com.google.devtools.depan.ruby.RubyAnalysisResourcePlugin"
+            id="com.google.devtools.depan.ruby.RubyAnalysisResourcePlugin">
+         <install_after
+               installer_ref="com.google.devtools.depan.matchers.persistence.GraphEdgeMatcherResourcesInstaller">
+         </install_after>
+         <install_after
+               installer_ref="com.google.devtools.depan.relations.persistence.RelationSetResourcesInstaller">
+         </install_after>
+      </installer>
+   </extension>
+   <extension
+         point="com.google.devtools.depan.eclipse.ui.nodes.node_element">
+      <node_features
+            class="com.google.devtools.depan.ruby.RubyNodePlugin"
+            id="com.google.devtools.depan.ruby.RubyNodePlugin">
+      </node_features>
+   </extension>
+</plugin>

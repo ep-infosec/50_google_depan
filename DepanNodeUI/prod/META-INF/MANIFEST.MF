@@ -1,0 +1,37 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DepanNodeUI
+Bundle-SymbolicName: com.google.devtools.depan.nodes.ui;singleton:=true
+Bundle-Version: 2.1.0.qualifier
+Bundle-Vendor: Pnambic Computing
+Require-Bundle: org.eclipse.core.resources,
+ org.eclipse.core.runtime,
+ org.slf4j.api,
+ org.eclipse.swt,
+ org.eclipse.jface,
+ org.eclipse.ui.ide,
+ org.eclipse.ui.workbench,
+ com.google.devtools.depan.core,
+ com.google.devtools.depan.persistence,
+ com.google.devtools.depan.edges,
+ com.google.devtools.depan.nodes,
+ com.google.devtools.depan.graph_doc,
+ com.google.devtools.depan.platform,
+ com.google.devtools.depan.platform.ui,
+ com.google.devtools.depan.edges.ui,
+ com.google.guava,
+ depan-xstream-library
+Export-Package: 
+ com.google.devtools.depan.eclipse.ui.nodes.api,
+ com.google.devtools.depan.eclipse.ui.nodes.cache,
+ com.google.devtools.depan.eclipse.ui.nodes.plugins,
+ com.google.devtools.depan.eclipse.ui.nodes.trees,
+ com.google.devtools.depan.eclipse.ui.nodes.viewers,
+ com.google.devtools.depan.nodes.filters.eclipse.ui.filters,
+ com.google.devtools.depan.nodes.filters.eclipse.ui.plugins,
+ com.google.devtools.depan.nodes.filters.eclipse.ui.widgets,
+ com.google.devtools.depan.nodes.filters.model,
+ com.google.devtools.depan.nodes.filters.persistence
+Bundle-ClassPath: .
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: com.google.devtools.depan.eclipse.ui.nodes.NodesUIActivator

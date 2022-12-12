@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DepanJava
+Bundle-SymbolicName: com.google.devtools.depan.java;singleton:=true
+Bundle-Version: 2.1.0.qualifier
+Bundle-Vendor: Pnambic Computing
+Require-Bundle: org.eclipse.core.resources,
+ org.eclipse.core.runtime,
+ com.google.devtools.depan.core,
+ com.google.devtools.depan.platform,
+ com.google.devtools.depan.persistence,
+ depan-xstream-library,
+ com.google.devtools.depan.graph_doc,
+ com.google.guava,
+ com.google.devtools.depan.filesystem
+Bundle-ClassPath: .
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: com.google.devtools.depan.java.JavaPluginActivator
+Export-Package: com.google.devtools.depan.java,
+ com.google.devtools.depan.java.graph

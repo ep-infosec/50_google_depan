@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="com.google.devtools.depan.view_doc.layout.registry.Generators" name="Layout Generators" schema="schema/com.google.devtools.depan.view_doc.layout.registry.Generators.exsd"/>
+   <extension-point id="com.google.devtools.depan.view_doc.eclipse.ui.registry.from_view_doc" name="New From View" schema="schema/com.google.devtools.depan.view_doc.eclipse.ui.registry.from_view_doc.exsd"/>
+   <extension-point id="com.google.devtools.depan.view_doc.eclipse.ui.registry.view_extension" name="ViewExtension" schema="schema/com.google.devtools.depan.view_doc.eclipse.ui.registry.view_extension.exsd"/>
+   <extension
+         point="com.google.devtools.depan.graph_doc.eclipse.ui.registry.from_graph_doc">
+      <contribution
+            class="com.google.devtools.depan.view_doc.eclipse.ui.wizards.ViewFromGraphDocContributor"
+            id="com.google.devtools.depan.view_doc.eclipse.ui.wizards.ViewFromGraphDocContributor">
+      </contribution>
+   </extension>
+   <extension
+         point="com.google.devtools.depan.persistence.resources.config">
+      <rsrc_doc_config
+            class="com.google.devtools.depan.view_doc.persistence.EdgeDisplayDocConfig"
+            id="com.google.devtools.depan.view_doc.persistence.EdgeDisplayDocConfig">
+      </rsrc_doc_config>
+      <rsrc_doc_config
+            class="com.google.devtools.depan.view_doc.persistence.RelationDisplayDocConfig"
+            id="com.google.devtools.depan.view_doc.persistence.RelationDisplayDocConfig">
+      </rsrc_doc_config>
+   </extension>
+   <extension
+         point="com.google.devtools.depan.nodes.filters.eclipse.ui.plugins.filters">
+      <filter
+            class="com.google.devtools.depan.view_doc.eclipse.ui.filters.IncludeViewNodesFilterContribution"
+            id="com.google.devtools.depan.view_doc.eclipse.ui.filters.IncludeViewNodesFilterContribution">
+      </filter>
+      <filter
+            class="com.google.devtools.depan.view_doc.eclipse.ui.filters.ExcludeViewNodesFilterContribution"
+            id="com.google.devtools.depan.view_doc.eclipse.ui.filters.ExcludeViewNodesFilterContribution">
+      </filter>
+   </extension>
+   <extension
+         point="com.google.devtools.depan.resources.analysis.installer">
+      <installer
+            class="com.google.devtools.depan.view_doc.persistence.EdgeDisplayResourcesInstaller"
+            id="com.google.devtools.depan.view_doc.persistence.EdgeDisplayResourcesInstaller">
+      </installer>
+      <installer
+            class="com.google.devtools.depan.view_doc.layout.persistence.LayoutResourcesInstaller"
+            id="com.google.devtools.depan.view_doc.layout.persistence.LayoutResourcesInstaller">
+      </installer>
+   </extension>
+   <extension
+         point="com.google.devtools.depan.view_doc.layout.registry.Generators">
+      <layout
+            class="com.google.devtools.depan.view_doc.layout.grid.GridLayoutContribution"
+            id="com.google.devtools.depan.view_doc.layout.grid.GridLayoutContribution">
+      </layout>
+      <layout
+            class="com.google.devtools.depan.view_doc.layout.keep.KeepPositionsPlan$Contribution"
+            id="com.google.devtools.depan.view_doc.layout.keep.KeepLocationsContribution">
+      </layout>
+   </extension>
+   <extension
+         point="com.google.devtools.depan.view_doc.eclipse.ui.registry.from_view_doc">
+      <contribution
+            class="com.google.devtools.depan.view_doc.eclipse.ui.wizards.ViewFromViewDocContributor"
+            id="com.google.devtools.depan.view_doc.eclipse.ui.wizards.ViewFromViewDocContributor">
+      </contribution>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.definitions">
+      <definition
+            id="com.google.devtools.depan.view_doc.eclipse.ui.editor.isViewEditorActive">
+         <with
+               variable="activeEditorId">
+            <equals
+                  value="com.google.devtools.depan.view_doc.eclipse.ui.editor.ViewEditor">
+            </equals>
+         </with>
+      </definition>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="com.google.devtools.depan.view_doc.eclipse.ui.editor.ViewEditor"
+            default="false"
+            extensions="dvi"
+            icon="icons/view-editor.gif"
+            id="com.google.devtools.depan.view_doc.eclipse.ui.editor.ViewEditor"
+            name="View Diagram">
+      </editor>
+      <editor
+            class="com.google.devtools.depan.view_doc.eclipse.ui.editor.RelationDisplayEditor"
+            default="false"
+            extensions="vrdxml"
+            icon="icons/relpicker.png"
+            id="com.google.devtools.depan.view_doc.eclipse.ui.editor.EdgeDisplayEditor"
+            name="Relation Display Resource">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="com.google.devtools.depan.view_doc.eclipse.ui.views"
+            name="ViewDoc Views">
+      </category>
+      <view
+            category="com.google.devtools.depan.view_doc.eclipse.ui.views"
+            class="com.google.devtools.depan.view_doc.eclipse.ui.views.ScenePrefsViewPart"
+            icon="icons/zoom.png"
+            id="com.google.devtools.depan.view_doc.eclipse.ui.views.ScenePrefsViewPart"
+            name="Scene Controls"
+            restorable="true">
+      </view>
+      <view
+            category="com.google.devtools.depan.view_doc.eclipse.ui.views"
+            class="com.google.devtools.depan.view_doc.eclipse.ui.views.VisibleRelationsViewPart"
+            icon="icons/relpicker.png"
+            id="com.google.devtools.depan.view_doc.eclipse.ui.views.VisibleRelationsViewPart"
+            name="Visible Relations"
+            restorable="true">
+      </view>
+      <view
+            category="com.google.devtools.depan.view_doc.eclipse.ui.views"
+            class="com.google.devtools.depan.view_doc.eclipse.ui.views.RelationDisplayViewPart"
+            icon="icons/relpicker.png"
+            id="com.google.devtools.depan.view_doc.eclipse.ui.views.RelationDisplayViewPart"
+            name="Relation Properties"
+            restorable="true">
+      </view>
+      <view
+            category="com.google.devtools.depan.view_doc.eclipse.ui.views"
+            class="com.google.devtools.depan.view_doc.eclipse.ui.views.EdgeDisplayViewPart"
+            icon="icons/relpicker.png"
+            id="com.google.devtools.depan.view_doc.eclipse.ui.views.EdgeDisplayViewPart"
+            name="Edge Properties"
+            restorable="true">
+      </view>
+      <view
+            category="com.google.devtools.depan.view_doc.eclipse.ui.views"
+            class="com.google.devtools.depan.view_doc.eclipse.ui.views.NodeDisplayViewPart"
+            icon="icons/nodeeditor.png"
+            id="com.google.devtools.depan.view_doc.eclipse.ui.views.NodeDisplayViewPart"
+            name="Node Properties"
+            restorable="true">
+      </view>
+      <view
+            category="com.google.devtools.depan.view_doc.eclipse.ui.views"
+            class="com.google.devtools.depan.view_doc.eclipse.ui.views.NodeFilterViewPart"
+            icon="icons/selectioneditor.png"
+            id="com.google.devtools.depan.view_doc.eclipse.ui.views.NodeFilterViewPart"
+            name="Node Filter"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Node stroke for select"
+            id="com.google.devtools.depan.view_doc.eclipse.ui.option.StrokeHighlight"
+            name="Stroke highlight">
+      </command>
+      <command
+            description="Take screenshot of current View Editor window"
+            id="com.google.devtools.depan.view_doc.eclipse.ui.command.TakeScreenshot"
+            name="Take screenshot...">
+      </command>
+      <command
+            description="Layout nodes with the supplied plan"
+            id="com.google.devtools.depan.view_doc.eclipse.ui.command.LayoutNodes"
+            name="Layout Nodes...">
+         <commandParameter
+               id="com.google.devtools.depan.view_doc.eclipse.ui.command.LayoutNodes.Contributor"
+               name="Plan Contributor"
+               optional="false">
+         </commandParameter>
+      </command>
+      <command
+            description="Select Layout"
+            id="com.google.devtools.depan.view_doc.layout.eclipse.ui.command.SelectLayoutNodes"
+            name="Layout nodes from selection">
+      </command>
+      <command
+            description="Layout Edges"
+            id="com.google.devtools.depan.view_doc.layout.eclipse.ui.command.SelectLayoutEdges"
+            name="Layout Edges">
+      </command>
+      <command
+            description="Select all nodes"
+            id="com.google.devtools.depan.view_doc.eclipse.ui.command.SelectAll"
+            name="Select All">
+      </command>
+      <command
+            description="Deselect all nodes"
+            id="com.google.devtools.depan.view_doc.eclipse.ui.command.SelectNone"
+            name="Empty Selection">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.google.devtools.depan.view_doc.eclipse.ui.handlers.SelectNoneHandler"
+            commandId="com.google.devtools.depan.view_doc.eclipse.ui.command.SelectNone">
+         <activeWhen>
+            <reference
+                  definitionId="com.google.devtools.depan.view_doc.eclipse.ui.editor.isViewEditorActive">
+            </reference>
+         </activeWhen>
+      </handler>
+      <handler
+            class="com.google.devtools.depan.view_doc.eclipse.ui.handlers.SelectAllHandler"
+            commandId="com.google.devtools.depan.view_doc.eclipse.ui.command.SelectAll">
+         <activeWhen>
+            <reference
+                  definitionId="com.google.devtools.depan.view_doc.eclipse.ui.editor.isViewEditorActive">
+            </reference>
+         </activeWhen>
+      </handler>
+      <handler
+            class="com.google.devtools.depan.view_doc.eclipse.ui.handlers.ViewEditorOptionHandler"
+            commandId="com.google.devtools.depan.view_doc.eclipse.ui.option.StrokeHighlight">
+         <activeWhen>
+            <reference
+                  definitionId="com.google.devtools.depan.view_doc.eclipse.ui.editor.isViewEditorActive">
+            </reference>
+         </activeWhen>
+      </handler>
+      <handler
+            class="com.google.devtools.depan.view_doc.layout.eclipse.ui.handlers.LayoutNodesHandler"
+            commandId="com.google.devtools.depan.view_doc.eclipse.ui.command.LayoutNodes">
+         <activeWhen>
+            <reference
+                  definitionId="com.google.devtools.depan.view_doc.eclipse.ui.editor.isViewEditorActive">
+            </reference>
+         </activeWhen>
+      </handler>
+      <handler
+            class="com.google.devtools.depan.view_doc.eclipse.ui.handlers.TakeScreenshotHandler"
+            commandId="com.google.devtools.depan.view_doc.eclipse.ui.command.TakeScreenshot">
+         <activeWhen>
+            <reference
+                  definitionId="com.google.devtools.depan.view_doc.eclipse.ui.editor.isViewEditorActive">
+            </reference>
+         </activeWhen>
+      </handler>
+      <handler
+            class="com.google.devtools.depan.view_doc.layout.eclipse.ui.handlers.SelectLayoutNodes"
+            commandId="com.google.devtools.depan.view_doc.layout.eclipse.ui.command.SelectLayoutNodes">
+         <activeWhen>
+            <reference
+                  definitionId="com.google.devtools.depan.view_doc.eclipse.ui.editor.isViewEditorActive">
+            </reference>
+         </activeWhen>
+      </handler>
+      <handler
+            class="com.google.devtools.depan.view_doc.layout.eclipse.ui.handlers.SelectLayoutEdges"
+            commandId="com.google.devtools.depan.view_doc.layout.eclipse.ui.command.SelectLayoutEdges">
+         <activeWhen>
+            <reference
+                  definitionId="com.google.devtools.depan.view_doc.eclipse.ui.editor.isViewEditorActive">
+            </reference>
+         </activeWhen>
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               id="eclipse.ui.main.menu.Edit"
+               label="Edit">
+            <menu
+                  id="eclipse.ui.main.menu.Edit.Layout"
+                  label="Layout">
+               <command
+                     commandId="com.google.devtools.depan.view_doc.layout.eclipse.ui.command.SelectLayoutEdges"
+                     label="Layout Edges..."
+                     style="push">
+                  <visibleWhen>
+                     <reference
+                           definitionId="com.google.devtools.depan.view_doc.eclipse.ui.editor.isViewEditorActive">
+                     </reference>
+                  </visibleWhen>
+               </command>
+               <command
+                     commandId="com.google.devtools.depan.view_doc.layout.eclipse.ui.command.SelectLayoutNodes"
+                     label="Select Layout..."
+                     style="push">
+                  <visibleWhen>
+                     <reference
+                           definitionId="com.google.devtools.depan.view_doc.eclipse.ui.editor.isViewEditorActive">
+                     </reference>
+                  </visibleWhen>
+               </command>
+            </menu>
+            <command
+                  commandId="com.google.devtools.depan.view_doc.eclipse.ui.command.TakeScreenshot"
+                  icon="icons/screenshot_16x16.png"
+                  id="com.google.devtools.depan.view_doc.eclipse.ui.command.TakeScreenshot"
+                  label="Take screenshot..."
+                  mnemonic="T"
+                  style="push"
+                  tooltip="Take a screenshot of the view, and save it to a file">
+               <visibleWhen>
+                  <reference
+                        definitionId="com.google.devtools.depan.view_doc.eclipse.ui.editor.isViewEditorActive">
+                  </reference>
+               </visibleWhen>
+            </command>
+            <command
+                  commandId="com.google.devtools.depan.view_doc.eclipse.ui.command.SelectAll"
+                  id="com.google.devtools.depan.view_doc.eclipse.ui.command.SelectAll"
+                  label="Select All"
+                  mnemonic="A"
+                  style="push"
+                  tooltip="Select all the nodes in the view">
+               <visibleWhen>
+                  <reference
+                        definitionId="com.google.devtools.depan.view_doc.eclipse.ui.editor.isViewEditorActive">
+                  </reference>
+               </visibleWhen>
+            </command>
+            <command
+                  commandId="com.google.devtools.depan.view_doc.eclipse.ui.command.SelectNone"
+                  id="com.google.devtools.depan.view_doc.eclipse.ui.command.SelectNone"
+                  label="Empty Selection"
+                  style="push"
+                  tooltip="Deselect all the nodes in the view">
+               <visibleWhen>
+                  <reference
+                        definitionId="com.google.devtools.depan.view_doc.eclipse.ui.editor.isViewEditorActive">
+                  </reference>
+               </visibleWhen>
+            </command>
+         </menu>
+         <menu
+               id="eclipse.ui.main.menu.View"
+               label="View">
+            <command
+                  commandId="com.google.devtools.depan.view_doc.eclipse.ui.option.StrokeHighlight"
+                  icon="icons/link_go.png"
+                  id="com.google.devtools.depan.view_doc.eclipse.ui.option.StrokeHighlight"
+                  label="Stroke highlight"
+                  style="toggle">
+               <visibleWhen>
+                  <reference
+                        definitionId="com.google.devtools.depan.view_doc.eclipse.ui.editor.isViewEditorActive">
+                  </reference>
+               </visibleWhen>
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="com.google.devtools.depan.eclipse.ui.wizards"
+            class="com.google.devtools.depan.view_doc.eclipse.ui.wizards.NewRelationDisplayDocWizard"
+            icon="icons/relpicker.png"
+            id="com.google.devtools.depan.view_doc.eclipse.ui.wizards.NewEdgeDisplayDocWizard"
+            name="Edge Properties">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.google.devtools.depan.eclipse.preferences.ColorPreferencesPage"
+            id="com.google.devtools.depan.eclipse.preferences.colors"
+            name="Colors">
+      </page>
+      <page
+            class="com.google.devtools.depan.eclipse.preferences.LabelPreferencesPage"
+            id="com.google.devtools.depan.eclipse.preferences.labels"
+            name="Labels">
+      </page>
+      <page
+            class="com.google.devtools.depan.eclipse.preferences.NodePreferencesPage"
+            id="com.google.devtools.depan.eclipse.preferences.nodeoptions"
+            name="Node Rendering options">
+      </page>
+   </extension>
+
+</plugin>
